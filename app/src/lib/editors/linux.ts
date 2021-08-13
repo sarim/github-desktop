@@ -79,6 +79,14 @@ const editors: ILinuxExternalEditor[] = [
     name: 'Emacs',
     paths: ['/snap/bin/emacs', '/usr/local/bin/emacs', '/usr/bin/emacs'],
   },
+  {
+    name: 'Kate',
+    paths: ['/usr/bin/kate'],
+  },
+  {
+    name: 'GNOME Text Editor',
+    paths: ['/usr/bin/gedit'],
+  },
 ]
 
 async function getAvailablePath(paths: string[]): Promise<string | null> {
