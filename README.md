@@ -42,17 +42,17 @@ using the link in the header.
 First install our GPG certificate:
 
 ```sh
-$ wget -qO - https://mirror.mwt.me/ghd/gpgkey | sudo tee /etc/apt/trusted.gpg.d/shiftkey-desktop.asc > /dev/null
+$ wget -qO - https://mirror.mwt.me/ghd/gpgkey | gpg --dearmor | sudo tee /etc/apt/keyrings/shiftkey-desktop.gpg > /dev/null
 ```
 
 To setup the package repository, run one of these commands:
 
 ```sh
 # if you want to use packagecloud.io
-$ sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftkey-desktop.list'
+$ sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/shiftkey-desktop.gpg] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftkey-desktop.list'
 
 # if you want to use the US mirror
-$ sudo sh -c 'echo "deb [arch=amd64] https://mirror.mwt.me/ghd/deb/ any main" > /etc/apt/sources.list.d/packagecloud-shiftkey-desktop.list'
+$ sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/shiftkey-desktop.gpg] https://mirror.mwt.me/ghd/deb/ any main" > /etc/apt/sources.list.d/mwt-shiftkey-desktop.list'
 ```
 
 Then install GitHub Desktop:
