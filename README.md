@@ -42,6 +42,10 @@ using the link in the header.
 First install our GPG certificate:
 
 ```sh
+# Get GPG key from packagecloud, might fail when monthly bandwidth limit is reached
+$ wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | gpg --dearmor | sudo tee /etc/apt/keyrings/shiftkey-desktop.gpg > /dev/null
+
+# Or Get GPG key from the US mirror, provided you trust the mirror provider
 $ wget -qO - https://mirror.mwt.me/ghd/gpgkey | gpg --dearmor | sudo tee /etc/apt/keyrings/shiftkey-desktop.gpg > /dev/null
 ```
 
@@ -66,6 +70,10 @@ $ sudo apt update && sudo apt install github-desktop
 First install our GPG certificate:
 
 ```sh
+# Get GPG key from packagecloud, might fail when monthly bandwidth limit is reached
+$ sudo rpm --import https://packagecloud.io/shiftkey/desktop/gpgkey
+
+# Or Get GPG key from the US mirror, provided you trust the mirror provider
 $ sudo rpm --import https://mirror.mwt.me/ghd/gpgkey
 ```
 
@@ -95,6 +103,10 @@ $ sudo dnf install github-desktop
 First install our GPG certificate:
 
 ```sh
+# Get GPG key from packagecloud, might fail when monthly bandwidth limit is reached
+$ sudo rpm --import https://packagecloud.io/shiftkey/desktop/gpgkey
+
+# Or Get GPG key from the US mirror, provided you trust the mirror provider
 $ sudo rpm --import https://mirror.mwt.me/ghd/gpgkey
 ```
 
